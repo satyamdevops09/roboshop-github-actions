@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+    inputs:
+      app_type:
+        required: true
+        type: string
+
+jobs:
+  java:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
