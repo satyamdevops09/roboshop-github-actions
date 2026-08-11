@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     uses: satyamdevops09/roboshop-github-actions/.github/workflows/build.yml@main
-    with:
-      app_type: nodejs
+    # with:
+    #   app_type: nodejs
 
   test:
     runs-on: self-hosted
