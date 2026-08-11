@@ -11,13 +11,13 @@ jobs:
     with:
       app_type: nodejs
 
-  # test:
-  #   runs-on: self-hosted
-  #   needs: build
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Run a one-line script
-  #       run: echo Hello, world!
+  test:
+    runs-on: self-hosted
+    # needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
 
   # dev-deploy:
   #   runs-on: self-hosted
