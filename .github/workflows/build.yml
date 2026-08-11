@@ -8,7 +8,7 @@ on:
 jobs:
   java:
     runs-on: self-hosted
-    if: ${{ inputs.app_type }} == 'java'
+    if:  inputs.app_type == 'java'
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -16,7 +16,7 @@ jobs:
 
   nodejs:
     runs-on: self-hosted 
-    if: ${{ inputs.app_type }} == 'nodejs'
+    if: inputs.app_type == 'nodejs'
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -24,7 +24,7 @@ jobs:
   
   python:
     runs-on: self-hosted
-    if: ${{ inputs.app_type }} == 'python'
+    if: inputs.app_type  == 'python'
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
