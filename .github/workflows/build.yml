@@ -6,12 +6,19 @@ on:
         type: string
 
 jobs:
+  dummy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo dummy job to avoid error of no job found in workflow call
+
   java:
     runs-on: self-hosted
     if:  inputs.app_type == 'java'
     steps:
       - uses: actions/checkout@v4
-      - name: Run a one-line script
+      - name: Maven package
         run:
           mvn package
 
