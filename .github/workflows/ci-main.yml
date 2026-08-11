@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml
+    uses: satyamdevops09/roboshop-github-actions/.github/workflows/build.yml@main
     with:
       app_type: nodejs
 
