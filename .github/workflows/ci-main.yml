@@ -11,15 +11,13 @@ jobs:
     with:
       app_type: ${{ inputs.app_type }}
 
-  
   test:
-    runs-on: self-hosted
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run a one-line script
-        run: echo Hello, world!
+    uses: satyamdevops09/roboshop-github-actions/.github/workflows/unittest.yml@main
+    with:
+      app_type: ${{ inputs.app_type }}
 
+  
+ 
   dev-deploy:
     runs-on: self-hosted
     needs: test
