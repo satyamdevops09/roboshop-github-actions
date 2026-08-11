@@ -13,6 +13,7 @@ jobs:
 
   test:
     uses: satyamdevops09/roboshop-github-actions/.github/workflows/unittest.yml@main
+    needs: build
     with:
       app_type: ${{ inputs.app_type }}
 
