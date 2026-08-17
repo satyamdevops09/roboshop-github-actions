@@ -8,7 +8,6 @@ on:
 jobs:
   docker-build-push:
     runs-on: self-hosted
-    if:  inputs.app_type == 'java'
     steps:
       - uses: actions/checkout@v4
       - name: Download dependencies
