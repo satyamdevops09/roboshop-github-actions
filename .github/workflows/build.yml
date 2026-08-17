@@ -14,7 +14,7 @@ jobs:
 
       - name: Download dependencies
         run: |
-          if [ "${{ inputs.app_type }}" == "java" ]; then
+          if [ ${ inputs.app_type } == "java" ]; then
             mvn package
           fi
 
