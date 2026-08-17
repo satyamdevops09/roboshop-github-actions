@@ -24,7 +24,7 @@ jobs:
  
   dev-deploy:
     runs-on: self-hosted
-    needs: test
+    needs: build
     environment: dev
     steps:
       - uses: actions/checkout@v4
