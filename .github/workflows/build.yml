@@ -6,21 +6,28 @@ on:
         type: string
 
 jobs:
-  dummy:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run a one-line script
-        run: echo dummy job to avoid error of no job found in workflow call
-
-  java:
+  docker-build-push:
     runs-on: self-hosted
     if:  inputs.app_type == 'java'
     steps:
       - uses: actions/checkout@v4
-      - name: Maven package
+      - name: Download dependencies
         run:
-          mvn package
+          if[[ ${{ inputs.app_type }} == 'java' ]]; then
+            mvn package
+          fi
+      - name: Docker Build
+        run:
+          docker build
+
+  # java:
+  #   runs-on: self-hosted
+  #   if:  inputs.app_type == 'java'
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Maven package
+  #       run:
+  #         mvn package
 
 
 # Python and nodejs will not have any thing to at build phase so we will not create any build job for them. We will create only test and deploy jobs for them.
