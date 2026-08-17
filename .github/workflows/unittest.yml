@@ -32,3 +32,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a one-line script
         run: echo python -m unittest test-cases.py
+
+    nginx:
+    runs-on: self-hosted
+    if: inputs.app_type  == 'nginx'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Nothing to do
