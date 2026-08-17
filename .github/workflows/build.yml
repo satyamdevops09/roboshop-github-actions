@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download dependencies
         run:
-          if[[ ${{ inputs.app_type }} == 'java' ]]; then
+          if[ ${{ inputs.app_type }} == 'java' ]; then
             mvn package
           fi
       - name: Docker Build
