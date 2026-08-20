@@ -19,6 +19,10 @@ jobs:
           if [ "${{ inputs.app_type }}" == "java" ]; then
             mvn package
           fi
+          if [ "${{ inputs.app_type }}" == "nodejs" ]; then
+            npm install
+          fi
+          
 
       - name: Docker Build
         run: |
