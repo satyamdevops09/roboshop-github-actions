@@ -4,10 +4,7 @@ on:
       app_type:
         required: true
         type: string
-      app_name:
-        required: true
-        type: string
-
+ 
 jobs:
   java:
     runs-on: self-hosted
