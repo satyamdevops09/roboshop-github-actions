@@ -4,7 +4,9 @@ on:
       app_type:
         required: true
         type: string
-
+      app_name:
+        required: true
+        type: string
 jobs:
  docker-build-push:
     runs-on: self-hosted
@@ -20,16 +22,9 @@ jobs:
 
       - name: Docker Build
         run: |
-          docker build .
-
-  # java:
-  #   runs-on: self-hosted
-  #   if:  inputs.app_type == 'java'
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Maven package
-  #       run:
-  #         mvn package
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 479363499437.dkr.ecr.us-east-1.amazonaws.com
+          docker build -t 479363499437.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.app_name }}:{{GITHUB_SHA}} .
+          docker push 479363499437.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.app_name }}:{{GITHUB_SHA}}
 
 
 # Python and nodejs will not have any thing to at build phase so we will not create any build job for them. We will create only test and deploy jobs for them.
