@@ -28,7 +28,11 @@ jobs:
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 479363499437.dkr.ecr.us-east-1.amazonaws.com
           docker build -t 479363499437.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.app_name }}:${{ github.sha }} .
-          docker push 479363499437.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.app_name }}:${{ github.sha }}
+          if aws ecr describe-images --region us-east-1 --repository-name "${{ inputs.app_name }}" --image-ids imageTag="${{ github.sha }}" > /dev/null 2>&1; then
+            echo "Image tag ${{ github.sha }} already exists; skipping push."
+          else
+            docker push 479363499437.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.app_name }}:${{ github.sha }}
+          fi
 
 
 # Python and nodejs will not have any thing to at build phase so we will not create any build job for them. We will create only test and deploy jobs for them.
