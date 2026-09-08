@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a one-line script
         run:
-          eco mvn test
+          mvn test
 
 
 
