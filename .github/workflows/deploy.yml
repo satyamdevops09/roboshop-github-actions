@@ -4,7 +4,7 @@ on:
      app_name:
         required: true
         type: string
-    app_env:
+     app_env:
         required: true
         type: string
 jobs:
