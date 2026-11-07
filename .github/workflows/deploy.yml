@@ -4,6 +4,9 @@ on:
      app_name:
         required: true
         type: string
+    app_env:
+        required: true
+        type: string
 jobs:
  docker-build-push:
     runs-on: self-hosted
