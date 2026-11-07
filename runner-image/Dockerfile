@@ -21,4 +21,3 @@ RUN               curl -L -o sonar-scanner-cli-7.1.0.4889-linux-x64.zip "https:/
 COPY              run.sh /
 ENTRYPOINT        ["bash", "/run.sh"]
 
-123
