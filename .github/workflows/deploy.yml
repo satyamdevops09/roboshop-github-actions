@@ -19,7 +19,6 @@ jobs:
       - name: Deploy
         run: |
           cd helm
-          ls -l
-          echo "$GITHUB_SHA"
+          helm upgrade -i ${{ inputs.app_name }} . -f env-${{ inputs.app_env }}/${{ inputs.app_name }}.yml 
 
  
