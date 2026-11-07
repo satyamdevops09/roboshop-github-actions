@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+     app_name:
+        required: true
+        type: string
+jobs:
+ docker-build-push:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Build
+        run: |
+          echo ${github.sha}
+
+ 
