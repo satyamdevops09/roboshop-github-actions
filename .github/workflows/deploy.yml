@@ -11,8 +11,12 @@ jobs:
  docker-build-push:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
-      - name: Docker Build
+      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+        with:
+          repository: 'satyamdevops09/roboshop-helm'
+          path: 'helm'
+      - name: Deploy
         run: |
           echo "$GITHUB_SHA"
 
