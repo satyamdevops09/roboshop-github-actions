@@ -12,7 +12,7 @@ RUN               curl https://raw.githubusercontent.com/helm/helm/main/scripts/
 # ARGOCD
 RUN               curl -sSL -o /bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && chmod +x /bin/argocd
 # TRIVY
-RUN               dnf install https://github.com/aquasecurity/trivy/releases/download/v0.65.0/trivy_0.65.0_Linux-64bit.rpm -y
+RUN               dnf install https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.rpm -y
 RUN               useradd github
 USER              github
 WORKDIR           /home/github
@@ -20,4 +20,3 @@ RUN               curl -o actions-runner-linux-x64-2.328.0.tar.gz -L https://git
 RUN               curl -L -o sonar-scanner-cli-7.1.0.4889-linux-x64.zip "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-linux-x64.zip?_gl=1*1aqu2g8*_gcl_au*MTgxMzM0NDY3NC4xNzU0MDA5MTU1*_ga*MTM4MTA5NDI5Ni4xNzU0MDA5MTU1*_ga_9JZ0GZ5TC6*czE3NTQwMDkxNTQkbzEkZzEkdDE3NTQwMDk4NzAkajU5JGwwJGgw" && unzip sonar-scanner-cli-7.1.0.4889-linux-x64.zip && rm -f sonar-scanner-cli-7.1.0.4889-linux-x64.zip
 COPY              run.sh /
 ENTRYPOINT        ["bash", "/run.sh"]
-
