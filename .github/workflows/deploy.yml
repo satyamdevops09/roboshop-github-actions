@@ -20,7 +20,7 @@ jobs:
       - name: Deploy
         run: |
           cd helm
-          aws eks update-kubeconfig --name dev --region us-east-1
+          aws eks update-kubeconfig --name dev 
           helm upgrade -i ${{ inputs.app_name }} . -f env-${{ inputs.app_env }}/${{ inputs.app_name }}.yml 
 
  
