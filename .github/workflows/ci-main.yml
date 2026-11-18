@@ -26,13 +26,13 @@ jobs:
 
  
   dev-deploy:
-    runs-on: self-hosted
-    needs: build
-    environment: dev
     uses: satyamdevops09/roboshop-github-actions/.github/workflows/deploy.yml@main
+    needs: build
     with:
-      app_name: ${{ inputs.app_type }}
-      app_env: dev
+      app_name: ${{ inputs.app_name }}
+      
+   
+    
 
   qa-deploy:
     runs-on: self-hosted
