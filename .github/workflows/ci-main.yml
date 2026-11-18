@@ -30,7 +30,7 @@ jobs:
     needs: build
     with:
       app_name: ${{ inputs.app_name }}
-      
+      app_env: dev
    
     
 
